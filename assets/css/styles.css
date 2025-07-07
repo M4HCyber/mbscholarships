@@ -163,8 +163,8 @@ nav a:hover {
   padding: var(--section-padding);
   background-position: center;
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/img/hero-banner.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(12, 1, 65, 0.5), rgba(25, 0, 255, 0.5)),
+    url("../img/hero-banner.jpg") center/cover no-repeat;
   text-align: center;
   margin-top: 80px;
 }
