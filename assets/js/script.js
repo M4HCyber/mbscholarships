@@ -90,3 +90,85 @@ abLink.addEventListener("click", function (event) {
 categories.addEventListener("click", function (event) {
   event.stopPropagation();
 });
+
+// VIDEO ANIMATION
+const videoElement = document.querySelector("video");
+let NumVideos = 2;
+let lastRandom = 0;
+
+const getRandomVideoNum = () => {
+  let random;
+  do {
+    random = Math.floor(Math.random() * NumVideos) + 1;
+  } while (random == lastRandom);
+  lastRandom = random;
+  return random;
+};
+
+const changeHeroBackground = () => {
+  videoElement.src = `assets/videos/video-background-${getRandomVideoNum()}.mp4`;
+};
+
+const changeVideo = () => {
+  videoElement.style.opacity = 0;
+
+  setTimeout(() => {
+    const random = getRandomVideoNum();
+    videoElement.src = `assets/videos/video-background-${random}.mp4`;
+    videoElement.load();
+
+    videoElement.oncanplay = () => {
+      videoElement.play();
+      videoElement.style.opacity = 1;
+    };
+  }, 10000);
+};
+
+setInterval(changeVideo, 30000);
+
+// SCHOLARSHIPS SECTION
+const loadMoreBtn = document.querySelector(".btn-load-more");
+const load1 = document.querySelectorAll(".hidden-one");
+const load2 = document.querySelectorAll(".hidden-two");
+const load3 = document.querySelectorAll(".hidden-three");
+const load4 = document.querySelectorAll(".hidden-four");
+const btnLoadMore = document.querySelector(".btn-load-more");
+let counter = 1;
+
+loadMoreBtn.addEventListener("click", () => {
+  btnLoadMore.innerHTML = `<i class="fa-solid fa-spinner fa-spin-pulse"></i>`;
+  setTimeout(function () {
+    if (counter == 1) {
+      for (const load of load1) {
+        load.classList.add("scholarship-show");
+      }
+      btnLoadMore.innerHTML =
+        'Show More  <i class="fa-solid fa-angles-down"></i>';
+    } else if (counter == 2) {
+      for (const load of load2) {
+        load.classList.add("scholarship-show");
+      }
+      btnLoadMore.innerHTML =
+        'Show More  <i class="fa-solid fa-angles-down"></i>';
+    } else if (counter == 3) {
+      for (const load of load3) {
+        load.classList.add("scholarship-show");
+      }
+      btnLoadMore.innerHTML =
+        'Show More  <i class="fa-solid fa-angles-down"></i>';
+    } else if (counter == 4) {
+      for (const load of load4) {
+        load.classList.add("scholarship-show");
+      }
+      btnLoadMore.innerHTML =
+        'Show Less  <i class="fa-solid fa-angles-down"></i>';
+    } else if (counter == 5) {
+      for (const load of [...load1, ...load2, ...load3, ...load4]) {
+        load.classList.remove("scholarship-show");
+      }
+      btnLoadMore.innerHTML =
+        'Show More  <i class="fa-solid fa-angles-down"></i>';
+    }
+    counter++;
+  }, 1000);
+});

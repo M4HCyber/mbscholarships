@@ -41,6 +41,7 @@
   /* Spacing */
   --section-padding: 100px 140px;
   --section-padding2: 100px 200px;
+  --section-padding3: 150px 250px;
 
   /* Box shadow */
   --shadow-1: 0 2px 25px hsla(0, 0%, 0%, 0.1);
@@ -64,7 +65,7 @@
 }
 
 html {
-  font-family: var(--font-family);
+  font-family: "var(--font-family)";
   color: var(--background-dark-100);
 }
 
@@ -99,6 +100,7 @@ h1 {
 h2 {
   font-size: var(--fs-h2);
   color: var(--blue);
+  text-decoration: underline;
 }
 
 h3 {
@@ -169,6 +171,26 @@ nav a:hover {
   margin-top: 80px;
 }
 
+.hero-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-section video.active {
+  opacity: 0;
+}
+
+.hero-section .content {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 .hero-section .subtitle {
   font-size: var(--fs-p-lg);
 }
@@ -209,6 +231,7 @@ nav a:hover {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-white-95);
+  overflow: hidden;
 }
 
 .about-us-section img {
@@ -232,6 +255,15 @@ section .header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 30px;
+  height: auto;
+}
+
+.h-scholarships {
+  display: none;
+}
+
+.scholarship-show {
+  display: block;
 }
 
 .scholarship-card {
@@ -487,7 +519,7 @@ footer .footer-bottom {
   font-size: var(--fs-h2);
 }
 
-@media screen and (min-width: 757px) {
+@media screen and (min-width: 800px) {
   .categories {
     position: absolute;
     top: 60%;
@@ -538,7 +570,7 @@ footer .footer-bottom {
   }
 }
 
-@media screen and (max-width: 757px) {
+@media screen and (max-width: 800px) {
   :root {
     /* Spacing */
     --section-padding: 50px;
@@ -661,13 +693,13 @@ footer .footer-bottom {
 
   /* ABOUT-US SECTION */
 
-  .about-us-content {
+  /* .about-us-content {
     width: 80%;
   }
 
   .about-us-section img {
     width: 80%;
-  }
+  } */
 }
 
 @media screen and (max-width: 365px) {
@@ -698,4 +730,128 @@ footer .footer-bottom {
 
 #scrollDown {
   bottom: 60px;
+}
+
+/* ABOUT US */
+/* CONTACT US PAGE */
+.contact-get-in-touch {
+  padding: var(--section-padding);
+  color: var(--color-white-95);
+  background-color: var(--blue);
+}
+
+.contact {
+  text-align: center;
+  max-width: 500px;
+  margin: 80px auto;
+}
+
+.contact div {
+  width: 2px;
+  height: 70px;
+  background-color: var(--color-white-95);
+  margin: 20px auto;
+}
+
+.contact p.subtitle {
+  text-transform: uppercase;
+}
+.contact h2 {
+  color: var(--color-white-95);
+  font-size: var(--fs-h1);
+}
+
+.contact-items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  align-items: center;
+  grid-gap: 50px;
+  text-align: center;
+}
+
+#connect {
+  display: flex;
+  gap: 10px;
+  font-size: var(--fs-p-lg);
+  justify-content: center;
+}
+
+#connect a {
+  color: var(--color-white-95);
+}
+
+/* FAQ SECTION */
+.faq-contact-page {
+  padding: var(--section-padding2);
+  background-color: #111111;
+  color: var(--color-white-95);
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-gap: 50px;
+}
+
+.faq-contact-page p.subtitle {
+  text-transform: uppercase;
+}
+
+.faq-contact-page p:not(.subtitle) {
+  font-size: var(--fs-p-sm);
+}
+
+.faq-contact-page h2 {
+  color: white;
+  font-size: var(--fs-h1);
+  margin: 20px 0;
+}
+
+/* ABOUT US */
+.us {
+  padding: var(--section-padding2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.us img {
+  width: 60%;
+  border-radius: 10px;
+}
+
+.us .name {
+  font-size: var(--fs-p-md-lg);
+  color: var(--blue);
+  font-weight: 900;
+  line-height: 2;
+}
+
+@media screen and (max-width: 1116px) {
+  .faq-contact-page .hide {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .faq-contact-page {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-contact-page .desc {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .faq-contact-page .faq-questions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SERVICES PAGE */
+.services {
+  margin-top: 80px;
 }
